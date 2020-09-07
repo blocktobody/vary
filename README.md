@@ -4,12 +4,12 @@
 
 ```
 |-- app
-	// 배리 프론트엔드 관련
-	|-- README.md
+  // 배리 프론트엔드 관련
+  |-- README.md
 |-- editor
-	// 배리 에디터 제작 관련
-	|-- README.md
+  // 배리 에디터 제작 관련
+  |-- README.md
 |-- others
-	// 기타 일반적인 주제들
-	|-- README.md
+  // 기타 일반적인 주제들
+  |-- README.md
 ```
