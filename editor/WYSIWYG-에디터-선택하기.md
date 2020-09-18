@@ -29,6 +29,8 @@ events.forEach(event => {
 });
 ```
 
+![한글 입력시 composition 이벤트 로그](https://blog.kakaocdn.net/dn/bAFkBv/btqIXfBrXcz/KsWrklpjPye1YVfblRKpn0/img.gif)
+
 로그 확인시 한 글자를 입력하기 시작하면 `compositionstart` 이벤트가 호출되고, 초성 중성 종성이 입력되기까지는 `compositionupdate` 이벤트가 호출되며, 그리고 마지막으로 다음 글자가 입력되기 시작했을 때 기존 글자의 `compositionend` 이벤트와 다음 글자의 `compositionstart` 이벤트가 연달아 호출되는 과정을 볼 수 있다. `composition` 이 완료되기 전까지는 뷰어에 반영되지 않기 때문에, 지연 현상이 발생하고 사용자 경험의 불편을 초래하게 된다.
 
 #### 교훈2: 라이브러리 선택 전 공식 문서를 꼼꼼히 읽자
@@ -45,9 +47,7 @@ events.forEach(event => {
 2. 만약 기능 추가의 가능성이 있다면 커스텀 플러그인 구현에 대한 확장성이 어느 정도인지
 3. 타겟 사용자에게 치명적인 버그가 있는지 (예: 한글 입력시 지연되는 버그)
 
-#### 새로운 선택: CKEditor5
-
-그렇게 돌고 돌아 새롭게 선택하게 된 것은 [CKEditor5](https://github.com/ckeditor/ckeditor5)였다. CKEditor5는 우선 가장 중요한 한글 버그가 없었고, 오픈 소스이며, 오래된 만큼 안정적이고 검증된 라이브러리이다. 또한 필요한 기능에 대하여 이미 구현되어 있는 플러그인을 참고할 수 있는 것도 장점이었다. 커스텀 플러그인 구현에 대해서도 [공식 문서](https://ckeditor.com/docs/index.html)에 기본 개념과 함께 여러 가지 케이스가 자세히 설명되어 있다.
+이것들을 모두 고려하여 새롭게 선택한 라이브러리는 [CKEditor5](https://github.com/ckeditor/ckeditor5)이다. CKEditor5는 우선 가장 중요한 한글 버그가 없었고, 오픈 소스이며, 오래된 만큼 안정적이고 검증된 라이브러리이다. 또한 필요한 기능에 대하여 이미 구현되어 있는 플러그인을 참고할 수 있는 것도 장점이었다. 커스텀 플러그인 구현에 대해서도 [공식 문서](https://ckeditor.com/docs/index.html)에 기본 개념과 함께 여러 가지 케이스가 자세히 설명되어 있다.
 
 #### 좋았던 점: 편집 결과 내보내기
 
